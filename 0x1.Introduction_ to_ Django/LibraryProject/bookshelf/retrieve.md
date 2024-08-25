@@ -2,4 +2,4 @@
 
 ## Command:
 ```python
-retrieved_book = Book.objects.get(id=book.id)
+retrieved_book = Book.objects.get(id=book.1984)
