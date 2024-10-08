@@ -5,8 +5,8 @@ from .models import Book
 # View for viewing an book
 @permission_required('app_name.can_view', raise_exception=True)
 def book_detail(request, pk):
-    book = get_object_or_404(Book, pk=pk)
-    return render(request, 'book_detail.html', {'book': book})
+    books = get_object_or_404(Book, pk=pk)
+    return render(request, 'book_detail.html', {'book': books})
 
 # View for creating an book
 @permission_required('app_name.can_create', raise_exception=True)
@@ -19,11 +19,11 @@ def book_create(request):
 # View for editing an book
 @permission_required('app_name.can_edit', raise_exception=True)
 def book_edit(request, pk):
-    book = get_object_or_404(Book, pk=pk)
+    books = get_object_or_404(Book, pk=pk)
     if request.method == 'POST':
         # handle form submission
         pass
-    return render(request, 'book_form.html', {'book': book})
+    return render(request, 'book_form.html', {'book': books})
 
 # View for deleting an book
 @permission_required('app_name.can_delete', raise_exception=True)
