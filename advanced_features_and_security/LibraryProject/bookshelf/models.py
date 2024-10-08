@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import BaseUserManager
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.contrib.auth.models import User
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, username, password=None, **extra_fields):
@@ -35,6 +36,22 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Updated to use the custom user model
+
+    class Meta:
+        permissions = [
+            ('can_view', 'Can view article'),
+            ('can_create', 'Can create article'),
+            ('can_edit', 'Can edit article'),
+            ('can_delete', 'Can delete article'),
+        ]
+
+    def __str__(self):
+        return self.title
+    
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
         permissions = [
