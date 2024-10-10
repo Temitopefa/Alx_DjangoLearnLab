@@ -154,3 +154,5 @@ SECURE_HSTS_PRELOAD = True
 SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent content-type sniffing
 SECURE_BROWSER_XSS_FILTER = True  # Enable XSS filtering by the browser
 X_FRAME_OPTIONS = 'DENY'  
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
