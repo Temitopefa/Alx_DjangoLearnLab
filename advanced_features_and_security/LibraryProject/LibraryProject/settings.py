@@ -140,3 +140,17 @@ SESSION_COOKIE_SECURE = True
 # Content Security Policy (CSP)
 CSP_DEFAULT_SRC = ("'self'",)  
 CSP_SCRIPT_SRC = ("'self'", 'https://trusted-cdn.com') 
+
+# Redirect all HTTP traffic to HTTPS
+SECURE_SSL_REDIRECT = True
+
+# HTTP Strict Transport Security (HSTS)
+# Forces browsers to only interact with the site via HTTPS
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply HSTS to all subdomains
+SECURE_HSTS_PRELOAD = True
+
+# Additional security headers
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent content-type sniffing
+SECURE_BROWSER_XSS_FILTER = True  # Enable XSS filtering by the browser
+X_FRAME_OPTIONS = 'DENY'  
