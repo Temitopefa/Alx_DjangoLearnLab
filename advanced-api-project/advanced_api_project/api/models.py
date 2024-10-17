@@ -15,7 +15,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     """
-    The Book model represents a book.
+    The Book model represents a book
     It includes a title, publication year, and a foreign key linking to an author.
     """
     title = models.CharField(max_length=200)
